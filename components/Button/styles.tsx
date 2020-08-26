@@ -12,8 +12,8 @@ export const Container = styled.button`
   font-weight: 600;
   display: flex;
   align-items: center;
-  font-size: 18px;
-  font-size: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
 `;
 
 export const Icon = styled.img`
