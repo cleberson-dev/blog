@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styles';
 import Logo from 'components/Logo';
+import Nav from 'components/Nav';
 
 
 interface Props {}
@@ -8,9 +9,8 @@ interface Props {}
 const Header: React.FC<Props> = () => {
   return (
     <S.Container>
-      <div>a</div>
+      <Nav />
       <Logo size={1.4} />
-      <div>a</div>
     </S.Container>
   );
 }
