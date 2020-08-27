@@ -14,6 +14,7 @@ export const Container = styled.button`
   align-items: center;
   font-size: 1rem;
   font-family: 'Nunito', sans-serif;
+  cursor: pointer;
 `;
 
 export const Icon = styled.img`
