@@ -40,7 +40,10 @@ const Pagination: React.FC<Props> = ({
         Página {currentPage} de {totalPages}
       </S.Text>
       <S.Text>
-        Mostrando {itemsPerPage} de {totalItems} posts
+        {itemsPerPage} itens por página
+      </S.Text>
+      <S.Text>
+        {totalItems} itens totais
       </S.Text>
     </S.Container>
   );
