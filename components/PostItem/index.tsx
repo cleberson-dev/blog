@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './styles';
+import categories from '../../categories.json';
 
 interface Props {
   id: string;
@@ -15,7 +16,7 @@ const PostItem: React.FC<Props> = ({ id, title, category, cover }) => {
       <S.Cover src={cover} />
       <div>
         <S.Title href={link}>{title}</S.Title>
-        <S.Category>{category}</S.Category>
+        <S.Category>{categories[category]}</S.Category>
       </div>
     </S.Container>
   );

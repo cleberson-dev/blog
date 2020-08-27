@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './styles';
+import categories from '../../categories.json';
 
 interface Props {
   title: string;
@@ -11,7 +12,7 @@ interface Props {
 const PostCard: React.FC<Props> = ({ title, category, cover, dark = false }) => {
   return (
     <S.Container cover={cover} dark={dark}>
-      <S.Category>{category}</S.Category>
+      <S.Category>{categories[category]}</S.Category>
       <S.Title>{title}</S.Title>
     </S.Container>
   );
