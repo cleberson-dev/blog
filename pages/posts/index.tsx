@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import path from "path";
-import fs from "fs";
-import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
@@ -13,6 +10,7 @@ import Pagination from "components/Pagination";
 import PostsList from "components/PostsList";
 
 import PostInfo from "../../interfaces/Post";
+import { getPostsMetadata } from "utils";
 
 interface Props {
   posts: PostInfo[];
@@ -52,20 +50,9 @@ const PostsPage: React.FC<Props> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsPath = path.join(process.cwd(), "posts");
-
-  const postFilenames = fs.readdirSync(postsPath);
-
-  const posts = postFilenames.map((filename) => {
-    const markdown = fs.readFileSync(path.join(postsPath, filename)).toString();
-    const { data } = matter(markdown);
-
-    return { id: filename.replace(".md", ""), ...data };
-  });
-
   return {
     props: {
-      posts,
+      posts: getPostsMetadata()
     },
   };
 };

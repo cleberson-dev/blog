@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import { GetStaticProps } from "next";
 
 import FeaturedPosts from "components/FeaturedPosts";
@@ -13,6 +10,7 @@ import SectionTitle from "../components/SectionTitle";
 
 import PostInfo from "interfaces/Post";
 import Layout from "components/Layout";
+import { getFeaturedPosts, getPostsMetadata } from "utils";
 
 const CustomWrapper = styled(Wrapper)`
   & section {
@@ -104,26 +102,11 @@ const Home: React.FC<Props> = ({ posts, featuredPosts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredPostsSlugs = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), "featured.json")).toString()
-  );
-  const postsPath = path.join(process.cwd(), "posts");
-
-  const postFilenames = fs.readdirSync(postsPath);
-
-  const posts = postFilenames.map((filename) => {
-    const markdown = fs.readFileSync(path.join(postsPath, filename)).toString();
-    const { data } = matter(markdown);
-
-    return { id: filename.replace(".md", ""), ...data };
-  });
-
-  const featuredPosts = featuredPostsSlugs.map((slug: any) =>
-    posts.find((post) => post.id === slug)
-  );
-
   return {
-    props: { featuredPosts, posts: posts.slice(0, 3) },
+    props: {
+      featuredPosts: getFeaturedPosts(),
+      posts: getPostsMetadata().slice(0, 3),
+    },
   };
 };
 
