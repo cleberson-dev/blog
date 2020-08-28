@@ -10,7 +10,7 @@ const Header: React.FC<Props> = () => {
   return (
     <S.Container>
       <Nav />
-      <a href="/" style={{ textDecoration: 'none' }}>
+      <a href="/" style={{ textDecoration: 'none', padding: '1rem' }}>
         <Logo size={1.4} />
       </a>
     </S.Container>
