@@ -5,7 +5,6 @@ import path from "path";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 
-import Header from "../components/Header";
 import FeaturedPosts from "components/FeaturedPosts";
 import PostsList from "components/PostsList";
 import Button from "components/Button";
@@ -13,6 +12,7 @@ import Wrapper from "../components/Wrapper";
 import SectionTitle from "../components/SectionTitle";
 
 import PostInfo from "interfaces/Post";
+import Layout from "components/Layout";
 
 const CustomWrapper = styled(Wrapper)`
   & section {
@@ -49,6 +49,15 @@ const Illustration = styled.img`
   height: 249px;
 `;
 
+const MorePostsText = styled.p`
+  font-size: 1.4rem;
+  font-weight: 800;
+
+  a {
+    color: #fc5f89;
+  }
+`;
+
 const Intro: React.FC = () => {
   return (
     <IntroContainer>
@@ -57,7 +66,7 @@ const Intro: React.FC = () => {
         <Description>
           Minhas ideias, opiniões, dicas e pensamentos on-line
         </Description>
-        <a href="/posts" style={{ textDecoration: 'none' }}>
+        <a href="/posts" style={{ textDecoration: "none" }}>
           <Button title="Leia alguma coisa" icon="/book.svg" />
         </a>
       </LeftPanel>
@@ -73,21 +82,24 @@ interface Props {
 
 const Home: React.FC<Props> = ({ posts, featuredPosts }) => {
   return (
-    <CustomWrapper>
-      <Header />
+    <Layout>
+      <CustomWrapper>
+        <Intro />
 
-      <Intro />
+        <section>
+          <SectionTitle>Destaques</SectionTitle>
+          <FeaturedPosts posts={featuredPosts} />
+        </section>
 
-      <section>
-        <SectionTitle>Destaques</SectionTitle>
-        <FeaturedPosts posts={featuredPosts} />
-      </section>
-
-      <section>
-        <SectionTitle>Alguns outros...</SectionTitle>
-        <PostsList posts={posts} />
-      </section>
-    </CustomWrapper>
+        <section>
+          <SectionTitle>Alguns outros...</SectionTitle>
+          <PostsList posts={posts} />
+          <MorePostsText>
+            Explore todos os meus <a href="/posts">posts</a>
+          </MorePostsText>
+        </section>
+      </CustomWrapper>
+    </Layout>
   );
 };
 

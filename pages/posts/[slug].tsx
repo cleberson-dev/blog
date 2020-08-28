@@ -4,9 +4,8 @@ import fs from "fs";
 import path from "path";
 import marked from "marked";
 import matter from "gray-matter";
-import Header from "components/Header";
 import PostDetails from "components/PostDetails";
-import Wrapper from "components/Wrapper";
+import Layout from "components/Layout";
 
 interface Props {
   post: Post;
@@ -22,18 +21,17 @@ interface Post {
 
 const PostPage: React.FC<Props> = ({ post }) => {
   return (
-    <div>
-      <Wrapper>
-        <Header />
-      </Wrapper>
-      <PostDetails
-        title={post.title}
-        category={post.category}
-        cover={post.cover}
-        content={post.content}
-        createdAtMs={post.createdAtMs}
-      />
-    </div>
+    <Layout>
+      <main>
+        <PostDetails
+          title={post.title}
+          category={post.category}
+          cover={post.cover}
+          content={post.content}
+          createdAtMs={post.createdAtMs}
+        />
+      </main>
+    </Layout>
   );
 };
 
@@ -58,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const slug = context.params?.slug;
-  
+
   const markdownPath = path.join(
     process.cwd(),
     "posts",
@@ -66,7 +64,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   );
 
   const { birthtimeMs } = fs.statSync(markdownPath);
-    
+
   const markdownFile = fs.readFileSync(markdownPath).toString();
 
   const parsedMarkdown = matter(markdownFile);
@@ -81,7 +79,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
         category: data.category,
         cover: data.cover,
         content: htmlString,
-        createdAtMs: birthtimeMs
+        createdAtMs: birthtimeMs,
       },
     },
   };
