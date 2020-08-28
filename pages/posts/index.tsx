@@ -1,16 +1,18 @@
 import React from "react";
-import Wrapper from "components/Wrapper";
+import styled from "styled-components";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
-import SectionTitle from "components/SectionTitle";
-import PostsList from "components/PostsList";
-import PostInfo from "../../interfaces/Post";
-import Pagination from "components/Pagination";
-import styled from "styled-components";
+
+import Wrapper from "components/Wrapper";
 import Layout from "components/Layout";
+import SectionTitle from "components/SectionTitle";
+import Pagination from "components/Pagination";
+import PostsList from "components/PostsList";
+
+import PostInfo from "../../interfaces/Post";
 
 interface Props {
   posts: PostInfo[];
