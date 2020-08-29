@@ -3,6 +3,7 @@ import * as S from "./styles";
 import Wrapper from "components/Wrapper";
 import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
+import categories from '../../categories.json';
 
 interface Props {
   title: string;
@@ -15,7 +16,7 @@ interface Props {
 const PostDetails: React.FC<Props> = ({ title, category, cover, content, createdAtMs }) => {
   return (
     <S.Container>
-      <S.Category>{category}</S.Category>
+      <S.Category>{categories[category]}</S.Category>
       <S.Cover src={cover} />
       <Wrapper>
         <S.Title>{title}</S.Title>
