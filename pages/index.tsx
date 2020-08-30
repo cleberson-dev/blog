@@ -80,7 +80,7 @@ interface Props {
 
 const Home: React.FC<Props> = ({ posts, featuredPosts }) => {
   return (
-    <Layout>
+    <Layout pageTitle="Início">
       <CustomWrapper>
         <Intro />
 

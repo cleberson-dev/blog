@@ -33,7 +33,7 @@ const PostsPage: React.FC<Props> = ({ posts }) => {
     posts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage);
 
   return (
-    <Layout>
+    <Layout pageTitle="Meus posts">
       <Wrapper>
         <main>
           <Title>Minhas publicações</Title>

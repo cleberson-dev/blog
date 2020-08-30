@@ -19,7 +19,7 @@ interface Post {
 
 const PostPage: React.FC<Props> = ({ post }) => {
   return (
-    <Layout>
+    <Layout pageTitle={post.title}>
       <main>
         <PostDetails
           title={post.title}
