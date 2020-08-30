@@ -2,6 +2,7 @@
 title: "Uma introdução"
 category: "personal"
 cover: "https://unsplash.com/photos/ddamygbOo1I/download?force=true&w=640"
+date: "29/08/2020"
 ---
 
 Bom... Primeiramente, bem-vindos ao meu blog!

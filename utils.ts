@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import marked from "marked";
 import path from "path";
 import featured from "./featured.json";
+import parse from "date-fns/parse";
 
 interface MarkdownMetadata {
   id: string;
@@ -13,7 +14,8 @@ interface MarkdownMetadata {
 }
 
 export const getPostsPath = () => path.join(process.cwd(), "posts");
-export const getPostPath = (slug: string) => path.join(getPostsPath(), slug + ".md");
+export const getPostPath = (slug: string) =>
+  path.join(getPostsPath(), slug + ".md");
 
 export const getPostsMetadata = () => {
   const postsPath = getPostsPath();
@@ -42,14 +44,12 @@ export const getMarkdownMetadata = (path: string): MarkdownMetadata => {
   const markdownFilename = getMarkdownFilename(path);
   const slug = markdownFilename.replace(".md", "");
 
-  const { birthtimeMs } = fs.statSync(path);
-
   return {
     id: slug,
     title: data.title,
     category: data.category,
     cover: data.cover,
-    createdAtMs: birthtimeMs,
+    createdAtMs: parse(data.date, "dd'/'LL'/'yyyy", new Date()).getTime(),
   };
 };
 
