@@ -21,6 +21,7 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
             ? pageTitle + " | " + websiteTitle
             : websiteTitle}
         </title>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Header />
       <S.Children>{children}</S.Children>
