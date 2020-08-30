@@ -22,6 +22,7 @@ const IntroContainer = styled.main`
   display: flex;
   width: 100%;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const Title = styled.h1`
