@@ -15,11 +15,15 @@ interface Post {
   category: string;
   cover: string;
   createdAtMs: number;
+  description?: string;
 }
 
 const PostPage: React.FC<Props> = ({ post }) => {
   return (
-    <Layout pageTitle={post.title}>
+    <Layout
+      pageTitle={post.title}
+      pageDescription={post.description}
+    >
       <main>
         <PostDetails
           title={post.title}

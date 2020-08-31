@@ -8,9 +8,10 @@ import Footer from "../Footer";
 interface Props {
   children: ReactNode;
   pageTitle?: string;
+  pageDescription?: string;
 }
 
-const Layout: React.FC<Props> = ({ children, pageTitle }) => {
+const Layout: React.FC<Props> = ({ children, pageTitle, pageDescription }) => {
   const websiteTitle = "cleberson.blog";
 
   return (
@@ -21,6 +22,7 @@ const Layout: React.FC<Props> = ({ children, pageTitle }) => {
             ? pageTitle + " | " + websiteTitle
             : websiteTitle}
         </title>
+        <meta name="description" content={pageDescription} />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Header />

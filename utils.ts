@@ -11,6 +11,7 @@ interface MarkdownMetadata {
   category: string;
   cover: string;
   createdAtMs: number;
+  description?: string;
 }
 
 export const getPostsPath = () => path.join(process.cwd(), "posts");
@@ -50,6 +51,7 @@ export const getMarkdownMetadata = (path: string): MarkdownMetadata => {
     category: data.category,
     cover: data.cover,
     createdAtMs: parse(data.date, "dd'/'LL'/'yyyy", new Date()).getTime(),
+    description: data.description
   };
 };
 

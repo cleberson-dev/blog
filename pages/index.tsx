@@ -80,8 +80,11 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ posts, featuredPosts }) => {
+  const pageDescription =
+    "Lugar para expor minhas opiniões, pensamentos, ideias sobre diversos assuntos, como também para ajudar e prover conhecimento para quem tem dificuldade, especialmente programação web.";
+
   return (
-    <Layout pageTitle="Início">
+    <Layout pageTitle="Início" pageDescription={pageDescription}>
       <CustomWrapper>
         <Intro />
 
