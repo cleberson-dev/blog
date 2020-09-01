@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link';
 import * as S from "./styles";
 import socials from '../../socials.json';
 
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
         <h1>cleberson</h1>
         <ul>
           <li className="selected">
-            <a href="/">.blog</a>
+            <Link href="/">.blog</Link>
           </li>
           <li>
             <a href="https://clebersondev.netlify.app">.dev</a>

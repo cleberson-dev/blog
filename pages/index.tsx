@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 
 import FeaturedPosts from "components/FeaturedPosts";
 import PostsList from "components/PostsList";
@@ -65,9 +66,9 @@ const Intro: React.FC = () => {
         <Description>
           Minhas ideias, opiniões, dicas e pensamentos on-line
         </Description>
-        <a href="/posts" style={{ textDecoration: "none" }}>
+        <Link href="/posts" style={{ textDecoration: "none" }}>
           <Button title="Leia alguma coisa" icon="/book.svg" />
-        </a>
+        </Link>
       </LeftPanel>
       <Illustration src="/illustration.png" alt="Ilustração" />
     </IntroContainer>
@@ -97,7 +98,7 @@ const Home: React.FC<Props> = ({ posts, featuredPosts }) => {
           <SectionTitle>Alguns outros...</SectionTitle>
           <PostsList posts={posts} />
           <MorePostsText>
-            Explore todos os meus <a href="/posts">posts</a>
+            Explore todos os meus <Link href="/posts">posts</Link>
           </MorePostsText>
         </section>
       </CustomWrapper>

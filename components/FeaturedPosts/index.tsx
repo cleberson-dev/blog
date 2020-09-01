@@ -12,7 +12,7 @@ const FeaturedPosts: React.FC<Props> = ({ posts }) => {
     <S.Container>
       {posts.map((post) => (
         <S.Item key={post.id}>
-          <S.Anchor href={'/posts/' + post.id}>
+          <S.Anchor as="a" href={'/posts/' + post.id}>
             <PostCard {...post} />
           </S.Anchor>
         </S.Item>

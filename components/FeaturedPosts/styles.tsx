@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export const Container = styled.ul`
   display: flex;
@@ -18,7 +19,7 @@ export const Item = styled.li`
   display: inline-block;
 `;
 
-export const Anchor = styled.a`
+export const Anchor = styled(Link)`
   display: block;
   text-decoration: none;
   width: 100%;

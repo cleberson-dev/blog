@@ -15,7 +15,7 @@ const PostItem: React.FC<Props> = ({ id, title, category, cover }) => {
     <S.Container>
       <S.Cover src={cover} />
       <div>
-        <S.Title href={link}>{title}</S.Title>
+        <S.Title as="a" href={link}>{title}</S.Title>
         <S.Category>{categories[category]}</S.Category>
       </div>
     </S.Container>

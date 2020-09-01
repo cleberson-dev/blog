@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 export const Container = styled.div`
   font-weight: 800;
@@ -16,7 +17,7 @@ export const Cover = styled.figure<{ src: string }>`
   background-size: cover;
 `;
 
-export const Title = styled.a`
+export const Title = styled(Link)`
   text-decoration: none;
   color: #2F495E;
   font-size: 1rem;
