@@ -13,4 +13,5 @@ export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
   text-decoration: none;
+  padding: 1rem 0;
 `;

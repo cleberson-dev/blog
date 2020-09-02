@@ -66,7 +66,7 @@ const Intro: React.FC = () => {
         <Description>
           Minhas ideias, opiniões, dicas e pensamentos on-line
         </Description>
-        <Link href="/posts" style={{ textDecoration: "none" }}>
+        <Link href="/posts">
           <Button title="Leia alguma coisa" icon="/book.svg" />
         </Link>
       </LeftPanel>
